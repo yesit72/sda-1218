@@ -193,7 +193,7 @@ const Fit=(function(){
   function add(arr,i,amt,cap){for(let k=-2;k<=2;k++){const j=i+k;if(j<0||j>=arr.length)continue;const capj=arr===G?cap*(.78+.22*Math.min(1.3,M[j])):cap;arr[j]=Math.min(capj,arr[j]+amt*(k===0?1:k*k===1?.6:.25)*(arr===G?M[j]:1))}}
   let t0=performance.now(),RATE=2.5,SPEED=.5;function sync(){const r=document.getElementById('spd'),t=document.getElementById('spdv');if(r)r.value=LVL;if(t)t.textContent=LVL}
   const LV=[.3,.5,.8,1.3,2.1];let LVL=2;
-  window.Snow={reset(){G.fill(0);L.fill(0);t0=performance.now();RATE=1;OPEN=true;for(const p of P)Object.assign(p,flake(false))},faster(){LVL=Math.min(5,LVL+1);SPEED=LV[LVL-1];sync()},set(v){LVL=v;SPEED=LV[v-1];sync()}};
+  window.Snow={reset(){G.fill(0);L.fill(0);t0=performance.now();RATE=1;OPEN=true;for(const p of P)Object.assign(p,flake(false))},faster(){if(LVL>=5){LVL=2;SPEED=LV[1];sync();this.reset();return}LVL=LVL+1;SPEED=LV[LVL-1];sync()},set(v){LVL=v;SPEED=LV[v-1];sync()}};
   function f(t){x.clearRect(0,0,W,H);
     for(const b of B){const a=b.a*(.6+.4*Math.sin(t/1600+b.p));const gr=x.createRadialGradient(b.x,b.y,0,b.x,b.y,b.r);
       gr.addColorStop(0,b.red?`rgba(232,71,92,${a})`:`rgba(241,217,138,${a})`);gr.addColorStop(1,'rgba(0,0,0,0)');x.fillStyle=gr;x.beginPath();x.arc(b.x,b.y,b.r,0,7);x.fill()}
@@ -203,7 +203,6 @@ const Fit=(function(){
     for(const p of P){p.y+=p.v*SPEED;p.x+=Math.sin(t/900*p.w+p.s)*(.3+p.z*.5)+wind*p.z;
       if(p.x<-10)p.x=W+10;if(p.x>W+10)p.x=-10;
       const i=Math.max(0,Math.min(G.length-1,Math.round(p.x/COL)));
-      if(OPEN&&R&&p.z>.35&&p.x>R.left+4&&p.x<R.right-4&&Math.abs(p.y-(R.top-L[i]))<p.v*SPEED+1&&Math.random()<.55){add(L,i,p.r*.30*RATE,ledgeCap);Object.assign(p,flake(true));continue}
       if(p.y>=H-G[i]){if(OPEN&&p.z>.2)add(G,i,p.r*1.2*RATE,mg);Object.assign(p,flake(true));continue}
       x.globalAlpha=OPEN?.6+p.z*.4:.35+p.z*.5;x.fillStyle=p.z<.22?'#F1D98A':'#FFFFFF';
       x.beginPath();x.arc(p.x,p.y,p.r,0,7);x.fill()}
@@ -219,9 +218,6 @@ const Fit=(function(){
     x.shadowColor='rgba(255,255,255,.55)';x.shadowBlur=10;x.fill();x.shadowBlur=0;
     // soft shading on the drift
     x.fillStyle='rgba(180,200,210,.18)';x.beginPath();x.moveTo(0,H);for(let i=0;i<G.length;i++)x.lineTo(i*COL,H-G[i]*.55);x.lineTo(W,H);x.closePath();x.fill();
-    // ledge on card top
-    if(R){x.fillStyle='#FFFFFF';x.beginPath();const i0=Math.max(0,Math.round(R.left/COL)),i1=Math.min(L.length-1,Math.round(R.right/COL));
-      x.moveTo(i0*COL,R.top+1);for(let i=i0;i<=i1;i++)x.lineTo(i*COL,R.top+1-L[i]);x.lineTo(i1*COL,R.top+1);x.closePath();x.fill()}
     requestAnimationFrame(f)}
   requestAnimationFrame(f);
 })();
