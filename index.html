@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Merry Christmas & Happy New Year · 서울도슨트협회</title>
+<meta property="og:title" content="Merry Christmas & Happy New Year">
+<meta property="og:description" content="서울도슨트협회가 보내는 연말 인사">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Cormorant+Garamond:wght@500;600&family=Noto+Serif+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#03140C;overflow:hidden}
+body{--gline:#DDBB62;--g1:#B18A2B;--g2:#F1D98A;--g3:#FFF7D6;--ink:#F6EED8;--muted:#BCCABA;--ruby:#B8142C;
+  color:var(--ink);font-family:'Noto Serif KR',serif;-webkit-font-smoothing:antialiased;word-break:keep-all}
+.bg{position:fixed;inset:0;background:radial-gradient(120% 75% at 50% 0%,#17604A 0%,#0B3426 45%,#04190F 80%,#020D07 100%)}
+canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:25}
+.gold{background:linear-gradient(105deg,var(--g1) 0%,var(--g2) 22%,var(--g3) 34%,var(--g2) 46%,var(--g1) 60%,var(--g2) 78%,var(--g1) 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:shine 7s linear infinite}
+@keyframes shine{0%{background-position:100% 0}100%{background-position:-150% 0}}
+.cap{font:600 11px/1.5 'Cormorant Garamond',serif;letter-spacing:.42em;text-transform:uppercase;color:var(--gline);padding-left:.42em}
+.script{font-family:'Pinyon Script',cursive;font-weight:400;line-height:1.05}
+
+/* intro */
+.intro{position:fixed;inset:0;z-index:20;background:radial-gradient(120% 75% at 50% 0%,#17604A 0%,#0B3426 45%,#04190F 80%,#020D07 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;cursor:pointer;transition:opacity 1.4s ease,visibility 1.4s}
+.intro.gone{opacity:0;visibility:hidden}
+.intro .script{font-size:44px}
+.orn{width:118px;height:118px;filter:drop-shadow(0 0 18px rgba(241,217,138,.45));animation:float 4s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.tap{font:600 12px/1 'Cormorant Garamond',serif;letter-spacing:.34em;color:#EADFBF;padding-left:.34em;animation:pulse 1.9s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* card */
+.stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:18px;z-index:5}
+.card{position:relative;width:min(100%,440px);height:min(100%,780px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:56px 30px 46px}
+.frame{position:absolute;inset:0;border:1px solid rgba(221,187,98,.7)}
+.frame:after{content:"";position:absolute;inset:7px;border:1px solid rgba(221,187,98,.32)}
+.corner{position:absolute;width:46px;height:46px}
+.hang{position:absolute;top:0;left:50%;width:2px;margin-left:-1px;transform-origin:50% 0;animation:swing 5s ease-in-out infinite}
+.hang i{display:block;width:1px;height:58px;margin:0 auto;background:linear-gradient(var(--g1),var(--g2))}
+.hang svg{display:block;margin:-4px 0 0 -21px}
+@keyframes swing{0%,100%{transform:rotate(4deg)}50%{transform:rotate(-4deg)}}
+.rise{opacity:0;transform:translateY(16px);transition:opacity 1.6s ease,transform 1.6s ease}
+.on .rise{opacity:1;transform:none}
+.on .d1{transition-delay:.3s}.on .d2{transition-delay:.9s}.on .d3{transition-delay:1.5s}.on .d4{transition-delay:2.1s}.on .d5{transition-delay:2.7s}.on .d6{transition-delay:3.3s}.on .d7{transition-delay:3.9s}
+.mc{font-size:clamp(54px,15vw,72px)}
+.amp{font:italic 500 26px/1 'Playfair Display',serif;color:var(--gline);margin:6px 0 2px}
+.hny{font-size:clamp(42px,11.5vw,56px)}
+.yr{font:600 30px/1 'Playfair Display',serif;letter-spacing:.32em;padding-left:.32em;margin-top:14px;font-variant-numeric:lining-nums}
+.rule{display:flex;align-items:center;gap:12px;width:200px;margin:26px 0 22px}
+.rule i{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gline))}
+.rule i:last-child{background:linear-gradient(270deg,transparent,var(--gline))}
+.rule b{width:7px;height:7px;background:var(--gline);transform:rotate(45deg);display:block}
+.msg{font:400 15px/1.95 'Noto Serif KR',serif;color:rgba(246,238,216,.92)}
+.sign{margin-top:22px;font:600 15px/1 'Noto Serif KR',serif;letter-spacing:.12em}
+.note{position:absolute;left:0;right:0;bottom:20px;font:400 11.5px/1.6 'Noto Serif KR',serif;color:rgba(188,202,186,.75)}
+.mute{position:fixed;top:16px;right:16px;z-index:30;width:40px;height:40px;border-radius:50%;border:1px solid rgba(221,187,98,.6);background:rgba(4,25,15,.55);color:var(--g2);display:none;align-items:center;justify-content:center;cursor:pointer;backdrop-filter:blur(4px)}
+.mute.show{display:flex}
+.mute svg{width:18px;height:18px}
+@media (max-height:640px){.card{padding:40px 24px 40px}.msg{font-size:14px;line-height:1.8}.rule{margin:16px 0 14px}.hang i{height:34px}}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<canvas id="snow"></canvas>
+
+<div class="intro" id="intro">
+  <svg class="orn" viewBox="-60 -60 120 120" aria-hidden="true">
+    <defs>
+      <linearGradient id="ig" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#B18A2B"/><stop offset=".45" stop-color="#F1D98A"/><stop offset=".6" stop-color="#FFF7D6"/><stop offset="1" stop-color="#B18A2B"/></linearGradient>
+    </defs>
+    <path d="M0-56L7-7L56 0L7 7L0 56L-7 7L-56 0L-7-7Z" fill="url(#ig)"/>
+    <path d="M0-30L4-4L30 0L4 4L0 30L-4 4L-30 0L-4-4Z" fill="url(#ig)" transform="rotate(45)" opacity=".75"/>
+    <circle r="6" fill="#FFF7D6"/>
+  </svg>
+  <div class="cap">Seoul Docent Association</div>
+  <div class="script gold">Season's Greetings</div>
+  <div class="tap">TAP TO OPEN</div>
+</div>
+
+<div class="stage" id="stage">
+  <div class="card">
+    <div class="frame"></div>
+    <svg class="corner" style="left:-1px;top:-1px" viewBox="0 0 46 46"><path d="M1 30V1H30M8 22V8H22" fill="none" stroke="#DDBB62" stroke-width="1.2"/><circle cx="8" cy="8" r="2" fill="#DDBB62"/></svg>
+    <svg class="corner" style="right:-1px;top:-1px;transform:scaleX(-1)" viewBox="0 0 46 46"><path d="M1 30V1H30M8 22V8H22" fill="none" stroke="#DDBB62" stroke-width="1.2"/><circle cx="8" cy="8" r="2" fill="#DDBB62"/></svg>
+    <svg class="corner" style="left:-1px;bottom:-1px;transform:scaleY(-1)" viewBox="0 0 46 46"><path d="M1 30V1H30M8 22V8H22" fill="none" stroke="#DDBB62" stroke-width="1.2"/><circle cx="8" cy="8" r="2" fill="#DDBB62"/></svg>
+    <svg class="corner" style="right:-1px;bottom:-1px;transform:scale(-1)" viewBox="0 0 46 46"><path d="M1 30V1H30M8 22V8H22" fill="none" stroke="#DDBB62" stroke-width="1.2"/><circle cx="8" cy="8" r="2" fill="#DDBB62"/></svg>
+
+    <div class="hang rise d1"><i></i>
+      <svg width="44" height="54" viewBox="-22 -10 44 54" aria-hidden="true">
+        <defs>
+          <radialGradient id="bb" cx=".35" cy=".32" r=".75"><stop offset="0" stop-color="#F0566B"/><stop offset=".5" stop-color="#B8142C"/><stop offset="1" stop-color="#4A0610"/></radialGradient>
+          <linearGradient id="cg" x1="0" x2="1"><stop offset="0" stop-color="#B18A2B"/><stop offset=".5" stop-color="#FFF7D6"/><stop offset="1" stop-color="#B18A2B"/></linearGradient>
+        </defs>
+        <rect x="-6" y="-8" width="12" height="9" rx="2" fill="url(#cg)"/>
+        <circle cx="0" cy="20" r="19" fill="url(#bb)"/>
+        <path d="M-17 17Q0 25 17 17" stroke="url(#cg)" stroke-width="1.6" fill="none"/>
+        <ellipse cx="-7" cy="11" rx="4.5" ry="2.6" transform="rotate(-35 -7 11)" fill="#fff" opacity=".7"/>
+      </svg>
+    </div>
+
+    <div class="cap rise d2" style="margin-top:40px">Seoul Docent Association</div>
+    <div class="script gold mc rise d2" style="margin-top:14px">Merry Christmas</div>
+    <div class="amp rise d3">&amp;</div>
+    <div class="script gold hny rise d3">Happy New Year</div>
+    <div class="yr gold rise d4">2027</div>
+    <div class="rule rise d5"><i></i><b></b><i></i></div>
+    <p class="msg rise d5">올 한 해 서울도슨트협회와 함께해 주신<br>회원 여러분께 깊이 감사드립니다.<br>작품 앞에서 함께 나눈 이야기들이<br>우리의 가장 빛나는 수작(秀作)이었습니다.<br>따뜻한 성탄과 복된 새해 맞으시길 바랍니다.</p>
+    <div class="sign gold rise d6">서울도슨트협회 드림</div>
+  </div>
+</div>
+
+<button class="mute" id="mute" aria-label="음악 끄기/켜기">
+  <svg id="icOn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
+  <svg id="icOff" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/><path d="M3 3l18 18"/></svg>
+</button>
+
+<script>
+/* ---------- falling gold snow & bokeh ---------- */
+(function(){
+  const c=document.getElementById('snow'),x=c.getContext('2d');let W,H,dpr,P=[],B=[];
+  function size(){dpr=Math.min(2,window.devicePixelRatio||1);W=innerWidth;H=innerHeight;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0)}
+  size();addEventListener('resize',size);
+  const N=Math.round(Math.min(140,W*H/6000));
+  for(let i=0;i<N;i++)P.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*2.2+.5,v:Math.random()*.5+.25,s:Math.random()*Math.PI*2,g:Math.random()<.45});
+  for(let i=0;i<14;i++)B.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*26+14,a:Math.random()*.12+.04,p:Math.random()*6,red:Math.random()<.25});
+  function f(t){x.clearRect(0,0,W,H);
+    for(const b of B){const a=b.a*(.6+.4*Math.sin(t/1600+b.p));const gr=x.createRadialGradient(b.x,b.y,0,b.x,b.y,b.r);
+      gr.addColorStop(0,b.red?`rgba(232,71,92,${a})`:`rgba(241,217,138,${a})`);gr.addColorStop(1,'rgba(0,0,0,0)');x.fillStyle=gr;x.beginPath();x.arc(b.x,b.y,b.r,0,7);x.fill()}
+    for(const p of P){p.y+=p.v;p.x+=Math.sin(t/1800+p.s)*.25;if(p.y>H+5){p.y=-5;p.x=Math.random()*W}
+      x.fillStyle=p.g?'rgba(241,217,138,.85)':'rgba(255,250,235,.7)';x.beginPath();x.arc(p.x,p.y,p.r,0,7);x.fill()}
+    requestAnimationFrame(f)}
+  requestAnimationFrame(f);
+})();
+
+/* ---------- music box "Silent Night" (Franz Gruber, 1818 · public domain), synthesized live ---------- */
+const Music=(function(){
+  let ctx,master,dry,wet,timer,on=true,startAt=0;
+  const E8=.40;
+  const m={C4:60,D4:62,E4:64,F4:65,G4:67,A4:69,B4:71,C5:72,D5:74,E5:76,F5:77};
+  const mel=[['G4',3],['A4',1],['G4',2],['E4',6],['G4',3],['A4',1],['G4',2],['E4',6],['D5',4],['D5',2],['B4',6],['C5',4],['C5',2],['G4',6],
+    ['A4',4],['A4',2],['C5',3],['B4',1],['A4',2],['G4',3],['A4',1],['G4',2],['E4',6],['A4',4],['A4',2],['C5',3],['B4',1],['A4',2],['G4',3],['A4',1],['G4',2],['E4',6],
+    ['D5',4],['D5',2],['F5',3],['D5',1],['B4',2],['C5',6],['E5',6],['C5',3],['G4',1],['E4',2],['G4',3],['F4',1],['D4',2],['C4',12]];
+  const ch=['C','C','C','C','G7','G7','C','C','F','F','C','C','F','F','C','C','G7','G7','C','C','C','G7','C','C'];
+  const CH={C:[48,55,60,64],F:[41,53,57,60],G7:[43,55,59,65]};
+  const hz=n=>440*Math.pow(2,(n-69)/12);
+  const PASS=144*E8+1.6;
+  function bell(f,t,amp,dec){
+    [[1,1,dec],[2,.35,dec*1.4],[3.01,.12,dec*2.3],[5.4,.16,dec*4]].forEach(([r,a,d])=>{
+      if(f*r>16000)return;const o=ctx.createOscillator(),g=ctx.createGain();o.type='sine';o.frequency.value=f*r;
+      g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(amp*a,t+.005);g.gain.exponentialRampToValueAtTime(.0001,t+4.6/d);
+      o.connect(g);g.connect(dry);g.connect(wet);o.start(t);o.stop(t+4.7/d)});
+  }
+  function pad(f,t,amp){const o=ctx.createOscillator(),g=ctx.createGain();o.type='triangle';o.frequency.value=f;
+    g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(amp,t+.03);g.gain.exponentialRampToValueAtTime(.0001,t+3.6);
+    o.connect(g);g.connect(dry);g.connect(wet);o.start(t);o.stop(t+3.7)}
+  function schedule(t0,tr){
+    let t=t0;for(const [n,d] of mel){bell(hz(m[n]+tr),t,.16,2.2);t+=d*E8}
+    ch.forEach((c,b)=>{const n=CH[c],i0=t0+b*6*E8;pad(hz(n[0]+(tr?0:0)),i0,.07);
+      [n[1],n[2],n[3],n[2],n[3],n[2]].forEach((nn,k)=>bell(hz(nn+tr),i0+k*E8,.045,2.8))});
+  }
+  let pass=0;
+  function loop(){const t0=startAt+pass*PASS;schedule(t0,pass%2?12:0);pass++;
+    timer=setTimeout(loop,Math.max(0,(t0+PASS-ctx.currentTime-3)*1000))}
+  function start(){
+    if(ctx)return;const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;ctx=new AC();
+    master=ctx.createGain();master.gain.value=0;
+    const comp=ctx.createDynamicsCompressor();comp.threshold.value=-14;comp.ratio.value=3;
+    master.connect(comp);comp.connect(ctx.destination);
+    dry=ctx.createGain();dry.gain.value=.8;dry.connect(master);
+    const conv=ctx.createConvolver();const L=Math.floor(ctx.sampleRate*2.6),ir=ctx.createBuffer(2,L,ctx.sampleRate);
+    for(let ch=0;ch<2;ch++){const d=ir.getChannelData(ch);for(let i=0;i<L;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/L,3.2)}
+    conv.buffer=ir;wet=ctx.createGain();wet.gain.value=.55;wet.connect(conv);conv.connect(master);
+    startAt=ctx.currentTime+.25;loop();
+    master.gain.setValueAtTime(0,ctx.currentTime);master.gain.linearRampToValueAtTime(.9,ctx.currentTime+3.5);
+  }
+  function toggle(){if(!ctx)return on;on=!on;const t=ctx.currentTime;master.gain.cancelScheduledValues(t);master.gain.setValueAtTime(master.gain.value,t);master.gain.linearRampToValueAtTime(on?.9:0,t+.8);return on}
+  document.addEventListener('visibilitychange',()=>{if(!ctx)return;document.hidden?ctx.suspend():ctx.resume()});
+  return {start,toggle};
+})();
+
+/* ---------- open ---------- */
+const intro=document.getElementById('intro'),stage=document.getElementById('stage'),mute=document.getElementById('mute');
+function open(){if(intro.classList.contains('gone'))return;intro.classList.add('gone');Music.start();
+  setTimeout(()=>stage.classList.add('on'),500);mute.classList.add('show')}
+intro.addEventListener('click',open);
+mute.addEventListener('click',()=>{const on=Music.toggle();document.getElementById('icOn').style.display=on?'':'none';document.getElementById('icOff').style.display=on?'none':''});
+if(new URLSearchParams(location.search).has('open')){intro.classList.add('gone');stage.classList.add('on')}
+</script>
+</body>
+</html>
