@@ -76,7 +76,11 @@ canvas{position:fixed;left:0;top:0;width:100%;height:var(--vh,100%);pointer-even
 .cameo{position:fixed;right:0;bottom:-4px;z-index:24;width:84px;transform:translateY(110%);transition:transform 1.8s cubic-bezier(.2,.9,.25,1.15),bottom .4s linear;pointer-events:auto;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .cameo.hop svg{animation:hop .62s cubic-bezier(.3,.7,.4,1)}
 @keyframes hop{0%{transform:translateY(0) scale(1,1)}12%{transform:translateY(2px) scale(1.08,.9)}45%{transform:translateY(-34px) scale(.96,1.05)}80%{transform:translateY(0) scale(1.06,.94)}100%{transform:translateY(0) scale(1,1)}}
-.cameo svg{transform-origin:50% 100%}
+.cameo svg{transform-origin:50% 100%;overflow:visible;display:block}
+.mound{position:absolute;left:-22%;width:150%;bottom:0;height:0;border-radius:50% 50% 0 0/26px 26px 0 0;background:linear-gradient(#FFFFFF,#E3ECEF);box-shadow:0 -2px 10px rgba(255,255,255,.55);pointer-events:none}
+.cameo.struggle .bob{animation:flail .34s ease-in-out infinite}
+@keyframes flail{0%,100%{transform:rotate(-11deg) translateY(0)}25%{transform:rotate(0deg) translateY(-5px)}50%{transform:rotate(11deg) translateY(0)}75%{transform:rotate(0deg) translateY(-3px)}}
+#flag.back{animation:flagin .8s ease-out}@keyframes flagin{from{opacity:0}to{opacity:1}}
 .zini{position:absolute;left:50%;top:-6px;transform:translate(-50%,0);font:400 17px/1 'Pinyon Script',cursive;color:#F1D98A;text-shadow:0 0 6px rgba(241,217,138,.7);white-space:nowrap;opacity:0;pointer-events:none}
 .cameo.hop .zini{animation:zini 1.1s ease-out}
 @keyframes zini{0%{opacity:0;transform:translate(-50%,6px)}25%{opacity:1;transform:translate(-50%,-16px)}65%{opacity:1;transform:translate(-50%,-20px)}100%{opacity:0;transform:translate(-50%,-26px)}}
@@ -140,7 +144,7 @@ canvas{position:fixed;left:0;top:0;width:100%;height:var(--vh,100%);pointer-even
 </div>
 
 <div class="tree" id="tree" aria-hidden="true"><svg viewBox="0 -4 100 106" width="100%"><defs><linearGradient id="tg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#B18A2B"/><stop offset=".5" stop-color="#FFF1BF"/><stop offset="1" stop-color="#B18A2B"/></linearGradient><filter id="tglow" x="-2" y="-2" width="5" height="5"><feGaussianBlur stdDeviation="2"/></filter></defs><g><path d="M50 10L80 40Q50 48 20 40Z" fill="#0E4A34" stroke="url(#tg)" stroke-width="1.6"/><path d="M50 30L90 62Q50 70 10 62Z" fill="#0E4A34" stroke="url(#tg)" stroke-width="1.6"/><path d="M50 52L98 86Q50 94 2 86Z" fill="#0E4A34" stroke="url(#tg)" stroke-width="1.6"/><path d="M24 50Q50 58 74 46M18 72Q50 82 84 68" stroke="url(#tg)" stroke-width="1.1" fill="none" opacity=".9"/><rect x="45" y="88" width="10" height="10" fill="#5A3A1E"/><g id="tlights"></g><g class="spk" style="transform-origin:50px 9px"><path d="M50 0L52.52 6.4799999999999995L59 9L52.52 11.52L50 18L47.48 11.52L41 9L47.48 6.4799999999999995Z" fill="url(#tg)"/></g><rect x="66" y="80" width="26" height="20" rx="2" fill="#B8142C"/><rect x="77" y="80" width="4" height="20" fill="url(#tg)"/><rect x="66" y="87" width="26" height="4" fill="url(#tg)"/><path d="M79 80c-6-8-12-4-8 0M79 80c6-8 12-4 8 0" stroke="url(#tg)" stroke-width="2" fill="none"/><rect x="6" y="84" width="22" height="16" rx="2" fill="#E3BF5A"/><rect x="15" y="84" width="4" height="16" fill="#B8142C"/><rect x="6" y="90" width="22" height="3.5" fill="#B8142C"/><path d="M17 84c-5-6-10-3-6 0M17 84c5-6 10-3 6 0" stroke="#B8142C" stroke-width="2" fill="none"/></g></svg></div>
-<div class="cameo" id="cameo" aria-hidden="true"><span class="zini">by zini</span><svg viewBox="-42 -100 94 110" width="100%"><defs><linearGradient id="cgold" x1="0" x2="1"><stop offset="0" stop-color="#C9A13C"/><stop offset=".5" stop-color="#FFF1BF"/><stop offset="1" stop-color="#C9A13C"/></linearGradient></defs><g transform="translate(20 8) scale(0.95)"><g class="bob"><ellipse cx="0" cy="-22" rx="22" ry="21" fill="#FBFCFF"/><ellipse cx="-6" cy="-26" rx="10" ry="9" fill="#fff" opacity=".9"/><circle cx="0" cy="-56" r="15" fill="#FBFCFF"/><path d="M-14-45Q0-38 14-45L15-40Q0-33-15-40Z" fill="#FE0106"/><path d="M7-41L12-24L6-25L3-40Z" fill="#FE0106"/><circle cx="-5" cy="-59" r="1.8" fill="#1E1A16"/><circle cx="5" cy="-59" r="1.8" fill="#1E1A16"/><path d="M0-55L11-53L0-52Z" fill="#E8832A"/><circle cx="-9" cy="-53" r="2.4" fill="#F4A3AE" opacity=".8"/><circle cx="9" cy="-53" r="2.4" fill="#F4A3AE" opacity=".8"/><path d="M-4-50Q0-47 4-50" stroke="#1E1A16" stroke-width="1.2" fill="none" stroke-linecap="round"/><circle cx="0" cy="-30" r="1.8" fill="#1E1A16"/><circle cx="0" cy="-20" r="1.8" fill="#1E1A16"/><rect x="-11" y="-80" width="22" height="13" rx="2" fill="#1A1A1A"/><rect x="-15" y="-69" width="30" height="4" rx="2" fill="#1A1A1A"/><rect x="-11" y="-72" width="22" height="3" fill="#B8142C"/><path d="M16-34L30-40M25-38L29-45" stroke="#6B4A2B" stroke-width="2.2" stroke-linecap="round"/><path d="M-16-34L-28-44" stroke="#6B4A2B" stroke-width="2.2" stroke-linecap="round"/><path d="M-30-44V-86" stroke="#8A6A3B" stroke-width="2.4"/><rect x="-62" y="-110" width="64" height="28" rx="5" fill="url(#cgold)" stroke="#7A5A14" stroke-width="1"/><text x="-30" y="-91" text-anchor="middle" font-family="Noto Serif KR,serif" font-weight="700" font-size="15" fill="#3A2A08">홍보팀</text></g></g></svg></div>
+<div class="cameo" id="cameo" aria-hidden="true"><span class="zini">by zini</span><svg viewBox="-42 -100 94 110" width="100%"><defs><linearGradient id="cgold" x1="0" x2="1"><stop offset="0" stop-color="#C9A13C"/><stop offset=".5" stop-color="#FFF1BF"/><stop offset="1" stop-color="#C9A13C"/></linearGradient></defs><g transform="translate(20 8) scale(0.95)"><g class="bob"><ellipse cx="0" cy="-22" rx="22" ry="21" fill="#FBFCFF"/><ellipse cx="-6" cy="-26" rx="10" ry="9" fill="#fff" opacity=".9"/><circle cx="0" cy="-56" r="15" fill="#FBFCFF"/><path d="M-14-45Q0-38 14-45L15-40Q0-33-15-40Z" fill="#FE0106"/><path d="M7-41L12-24L6-25L3-40Z" fill="#FE0106"/><circle cx="-5" cy="-59" r="1.8" fill="#1E1A16"/><circle cx="5" cy="-59" r="1.8" fill="#1E1A16"/><path d="M0-55L11-53L0-52Z" fill="#E8832A"/><circle cx="-9" cy="-53" r="2.4" fill="#F4A3AE" opacity=".8"/><circle cx="9" cy="-53" r="2.4" fill="#F4A3AE" opacity=".8"/><path d="M-4-50Q0-47 4-50" stroke="#1E1A16" stroke-width="1.2" fill="none" stroke-linecap="round"/><circle cx="0" cy="-30" r="1.8" fill="#1E1A16"/><circle cx="0" cy="-20" r="1.8" fill="#1E1A16"/><rect x="-11" y="-80" width="22" height="13" rx="2" fill="#1A1A1A"/><rect x="-15" y="-69" width="30" height="4" rx="2" fill="#1A1A1A"/><rect x="-11" y="-72" width="22" height="3" fill="#B8142C"/><g id="rarm"><path d="M16-34L30-40M25-38L29-45" stroke="#6B4A2B" stroke-width="2.2" stroke-linecap="round"/></g><path d="M-16-34L-28-44" stroke="#6B4A2B" stroke-width="2.2" stroke-linecap="round"/><g id="flag"><path d="M-30-44V-86" stroke="#8A6A3B" stroke-width="2.4"/><rect x="-62" y="-110" width="64" height="28" rx="5" fill="url(#cgold)" stroke="#7A5A14" stroke-width="1"/><text x="-30" y="-91" text-anchor="middle" font-family="Noto Serif KR,serif" font-weight="700" font-size="15" fill="#3A2A08">홍보팀</text></g></g></g></svg><div class="mound" id="mound"></div></div>
 <div class="spd" id="spdbox"><svg viewBox="0 0 24 24" fill="none" stroke="#F1D98A" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M12 2v20M3.3 7l17.4 10M3.3 17L20.7 7M9 4l3 2.5L15 4M9 20l3-2.5 3 2.5M4 10.5l3.8.5-1.3 3.6M20 13.5l-3.8-.5 1.3-3.6M4 13.5l3.8-.5-1.3-3.6M20 10.5l-3.8.5 1.3 3.6"/></svg><input type="range" id="spd" min="1" max="5" step="1" value="2" aria-label="눈 내리는 속도 단계"><b id="spdv">2</b></div>
 <button class="mute" id="mute" aria-label="음악 끄기/켜기">
   <svg id="icOn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
@@ -176,6 +180,23 @@ const Fit=(function(){
   return {fit,vh};
 })();
 
+/* ---------- snowman: buried -> throws the flag -> flails -> reset ---------- */
+const Cam=(function(){const cm=document.getElementById('cameo'),md=document.getElementById('mound'),fl=document.getElementById('flag'),ra=document.getElementById('rarm');
+  const bob=fl.parentNode,outer=bob.parentNode;let busy=false,raf=0,timer=0;
+  function mound(h){md.style.height=h+'px'}
+  function flail(){busy=true;api.busy=true;outer.appendChild(fl);cm.classList.add('struggle');const t0=performance.now();
+    const sh=cm.querySelector('svg').getBoundingClientRect().height||98,mh=parseFloat(md.style.height)||0;
+    const A=-100,ca=Math.cos(A*Math.PI/180),sa=Math.sin(A*Math.PI/180),cy=-34+(-14*sa+-62*ca);
+    const topL=((10-mh*110/sh)-8)/.95,DY=topL-cy-4,DX=-70;
+    (function step(t){const e=(t-t0)/1000,a=Math.min(1,e/1.1),ease=1-Math.pow(1-a,2);
+      const y=a>=1?DY:(-70*Math.sin(Math.PI*a)+DY*a*a);
+      fl.setAttribute('transform',`translate(${DX*ease} ${y}) rotate(${A*ease} -16 -34)`);
+      ra.setAttribute('transform',`rotate(${Math.sin(e*22)*38-20} 16 -34)`);raf=requestAnimationFrame(step)})(t0);
+    timer=setTimeout(()=>{window.Snow&&Snow.full()},4600)}
+  function calm(){cancelAnimationFrame(raf);clearTimeout(timer);busy=false;api.busy=false;cm.classList.remove('struggle');ra.removeAttribute('transform');
+    if(fl.parentNode!==bob){bob.appendChild(fl);fl.removeAttribute('transform');fl.classList.remove('back');void fl.getBBox();fl.classList.add('back')}mound(0)}
+  const api={busy:false,mound,flail,calm};return api})();
+
 /* ---------- heavy snow that piles up in drifts ---------- */
 (function(){
   const c=document.getElementById('snow'),x=c.getContext('2d');let W,H,dpr,P=[],B=[],G=[],L=[],M=[],COL=4;
@@ -189,28 +210,33 @@ const Fit=(function(){
   const N=Math.round(Math.min(900,Math.max(360,W*H/700)));
   for(let i=0;i<N;i++)P.push(flake(false));
   for(let i=0;i<12;i++)B.push({x:Math.random()*W,y:Math.random()*H*.7,r:Math.random()*26+14,a:Math.random()*.1+.04,p:Math.random()*6,red:Math.random()<.25});
-  function maxG(){if(!OPEN)return Math.min(H*.22,190);const r=sign.getBoundingClientRect(),ch=Math.max(document.getElementById('cameo').getBoundingClientRect().height,document.getElementById('tree').getBoundingClientRect().height);return Math.max(30,Math.min(H*.32,H-r.bottom-16,H-r.bottom-ch*.9))}
+  function maxG(){if(!OPEN)return Math.min(H*.22,190);const r=sign.getBoundingClientRect(),ch=Math.max(document.getElementById('cameo').getBoundingClientRect().height,document.getElementById('tree').getBoundingClientRect().height);return Math.max(40,Math.min(H*.32,H-r.bottom-16))}
   function add(arr,i,amt,cap){for(let k=-2;k<=2;k++){const j=i+k;if(j<0||j>=arr.length)continue;const capj=arr===G?cap*(.78+.22*Math.min(1.3,M[j])):cap;arr[j]=Math.min(capj,arr[j]+amt*(k===0?1:k*k===1?.6:.25)*(arr===G?M[j]:1))}}
   let t0=performance.now(),RATE=2.5,SPEED=.5;function sync(){const r=document.getElementById('spd'),t=document.getElementById('spdv');if(r)r.value=LVL;if(t)t.textContent=LVL}
   const LV=[.3,.5,.8,1.3,2.1];let LVL=2;
-  window.Snow={reset(){G.fill(0);L.fill(0);t0=performance.now();RATE=1;OPEN=true;for(const p of P)Object.assign(p,flake(false))},faster(){if(LVL>=5){LVL=2;SPEED=LV[1];sync();this.reset();return}LVL=LVL+1;SPEED=LV[LVL-1];sync()},set(v){LVL=v;SPEED=LV[v-1];sync()}};
+  let RAMP=1;
+  window.Snow={reset(){G.fill(0);L.fill(0);t0=performance.now();RATE=1;OPEN=true;RAMP=.18;P.forEach((p,k)=>{Object.assign(p,flake(false));p.park=k>=N*RAMP});Cam.calm()},full(){LVL=2;SPEED=LV[1];sync();this.reset()},faster(){if(LVL>=5){this.full();return}LVL=LVL+1;SPEED=LV[LVL-1];sync()},set(v){LVL=v;SPEED=LV[v-1];sync()}};
   function f(t){x.clearRect(0,0,W,H);
     for(const b of B){const a=b.a*(.6+.4*Math.sin(t/1600+b.p));const gr=x.createRadialGradient(b.x,b.y,0,b.x,b.y,b.r);
       gr.addColorStop(0,b.red?`rgba(232,71,92,${a})`:`rgba(241,217,138,${a})`);gr.addColorStop(1,'rgba(0,0,0,0)');x.fillStyle=gr;x.beginPath();x.arc(b.x,b.y,b.r,0,7);x.fill()}
     const on=document.getElementById('stage').classList.contains('on');const R=on?card.getBoundingClientRect():null;const mg=maxG();
     const ledgeCap=R?Math.max(8,20*R.width/440):0;
     const wind=Math.sin(t/5200)*.6;
-    for(const p of P){p.y+=p.v*SPEED;p.x+=Math.sin(t/900*p.w+p.s)*(.3+p.z*.5)+wind*p.z;
+    const el0=(t-t0)/1000;if(OPEN){RAMP=Math.min(1,.15+el0/55);RATE=.12+RAMP*.7}const act=OPEN?N*RAMP:N;let k=-1;
+    for(const p of P){k++;if(p.park){if(k<act){Object.assign(p,flake(true));p.park=false}else continue}
+      p.y+=p.v*SPEED;p.x+=Math.sin(t/900*p.w+p.s)*(.3+p.z*.5)+wind*p.z;
       if(p.x<-10)p.x=W+10;if(p.x>W+10)p.x=-10;
       const i=Math.max(0,Math.min(G.length-1,Math.round(p.x/COL)));
-      if(p.y>=H-G[i]){if(OPEN&&p.z>.2)add(G,i,p.r*1.2*RATE,mg);Object.assign(p,flake(true));continue}
+      if(p.y>=H-G[i]){if(OPEN&&p.z>.2&&!Cam.busy)add(G,i,p.r*1.2*RATE,mg);Object.assign(p,flake(true));if(k>=act)p.park=true;continue}
       x.globalAlpha=OPEN?.6+p.z*.4:.35+p.z*.5;x.fillStyle=p.z<.22?'#F1D98A':'#FFFFFF';
       x.beginPath();x.arc(p.x,p.y,p.r,0,7);x.fill()}
     x.globalAlpha=1;
     for(let i=1;i<G.length-1;i++){G[i]=G[i]*.9+(G[i-1]+G[i+1])*.05;L[i]=L[i]*.86+(L[i-1]+L[i+1])*.07}
-    const el=(t-t0)/1000;for(let i=0;i<G.length;i++)G[i]=Math.min(mg*(.78+.22*Math.min(1.3,M[i])),G[i]+(OPEN?.03*RATE*M[i]*Math.min(1,el/10):0));
+    const el=(t-t0)/1000;for(let i=0;i<G.length;i++)G[i]=Math.min(mg*(.78+.22*Math.min(1.3,M[i])),G[i]+(OPEN&&!Cam.busy?.03*RATE*M[i]*Math.min(1,el/10):0));
     // cameo rides on the drift but never reaches the text
-    for(const id of ['cameo','tree']){const cm=document.getElementById(id);if(!cm||!cm.classList.contains('up'))continue;const cr=cm.getBoundingClientRect();let sm=0,n=0;for(let i=Math.max(0,Math.round(cr.left/COL));i<=Math.min(G.length-1,Math.round(cr.right/COL));i++){sm+=G[i];n++}
+    {const cm=document.getElementById('cameo');if(cm&&cm.classList.contains('up')){cm.style.bottom='-4px';const cr=cm.getBoundingClientRect();let sm=0,n=0;for(let i=Math.max(0,Math.round(cr.left/COL));i<=Math.min(G.length-1,Math.round(cr.right/COL));i++){sm+=G[i];n++}
+      const mh=Math.max(0,(n?sm/n:0)+4-6);Cam.mound(mh);const sh=cm.querySelector('svg').getBoundingClientRect().height;if(OPEN&&!Cam.busy&&mh>=Math.min(sh*.21,mg*.85))Cam.flail()}}
+    for(const id of ['tree']){const cm=document.getElementById(id);if(!cm||!cm.classList.contains('up'))continue;const cr=cm.getBoundingClientRect();let sm=0,n=0;for(let i=Math.max(0,Math.round(cr.left/COL));i<=Math.min(G.length-1,Math.round(cr.right/COL));i++){sm+=G[i];n++}
       let lim=999;if(OPEN){const sr=sign.getBoundingClientRect();lim=H-sr.bottom-10-cr.height}cm.style.bottom=Math.max(-4,Math.min(lim,(n?sm/n:0)-12))+'px'}
     // ground drift
     const gr=x.createLinearGradient(0,H-mg-10,0,H);gr.addColorStop(0,'#FFFFFF');gr.addColorStop(1,'#D6E2E6');
